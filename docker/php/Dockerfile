@@ -1,8 +1,5 @@
 FROM php:8.1-fpm
 
-# ENV http_proxy "http://10.7.6.6:3128"
-# ENV https_proxy "http://10.7.6.6:3128"
-
 ARG UID
 EXPOSE $UID
 
