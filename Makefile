@@ -32,6 +32,9 @@ restart: ## Restart the containers
 build: ## Rebuilds all the containers
 	docker-compose stop && U_ID=${UID} docker-compose build && $(MAKE) run && $(MAKE) initialize
 
+re-build: ## Rebuilds all the containers
+	docker-compose stop && U_ID=${UID} docker-compose build && $(MAKE) run
+
 # Backend commands
 be-logs: ## Tails the Symfony dev log
 	docker exec -it --user ${UID} ${DOCKER_BE} tail -f var/log/dev.log
