@@ -51,13 +51,14 @@ config-db-user: ## Config database user
 	docker exec ${DOCKER_DB} sh -c 'exec mysqldump --all-databases -uroot -p root' < /docker/database/configUser.sql
 
 initialize: ## Initialize project 
-	# docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.email "renerecalde2@gmail.com"
-	# docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.name "renerecalde"
-	# docker exec -it --user ${UID} ${DOCKER_BE} symfony new ./demo-symfony6 --version="6.1.*" --webapp 
-	# mv ./demo-symfony6/* ./ --force
-	# docker exec -it --user ${UID} ${DOCKER_BE} shopt -s extglob
-	rm -rf ./.git
-	echo mv ./demo-symfony6/.* ./ --force 
+	docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.email "renerecalde2@gmail.com"
+	docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.name "renerecalde"
+	docker exec -it --user ${UID} ${DOCKER_BE} symfony new ./demo-symfony6 --version="6.1.*" --webapp 
+	mv ./demo-symfony6/* ./ --force
+	docker exec -it --user ${UID} ${DOCKER_BE} shopt -s extglob
+	rm -rf ./demo-symfony6/.git
+	rm -rf ./demo-symfony6/.gitignore
+	mv ./demo-symfony6/.* ./ --force 
 
 
 
