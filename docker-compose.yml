@@ -56,7 +56,7 @@ services:
     ports:
       - "36001:3306"
     environment:
-      MYSQL_DATABASE: "mprod_demo8"
+      MYSQL_DATABASE: "mprod_demo-symfony6"
       MYSQL_PASSWORD: "password"
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -67,7 +67,7 @@ services:
     networks:
       - demo-symfony6-network
 
-  demo8-phpmyadmin:
+  demo-symfony6-phpmyadmin:
     container_name: demo-symfony6-phpmyadmin
     image: phpmyadmin/phpmyadmin
     ports:
@@ -79,9 +79,9 @@ services:
     networks:
       - demo-symfony6-network
 
-  demo8-portainer:
+  demo-symfony6-portainer:
     image: portainer/portainer-ce:latest
-    container_name: demo8-portainer
+    container_name: demo-symfony6-portainer
     restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
