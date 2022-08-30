@@ -57,12 +57,13 @@ initialize: ## Initialize project
 	docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.email "renerecalde2@gmail.com"
 	docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.name "renerecalde"
 	docker exec -it --user ${UID} ${DOCKER_BE} symfony new ./demo-symfony6 --version="6.1.*" --webapp 
-	rm -rf ./demo-symfony6/docker-compose.yml
-	rm -rf ./demo-symfony6/.git
-	rm -rf ./demo-symfony6/.gitignore
-	mv ./demo-symfony6/* ./ --force
-	mv ./demo-symfony6/.* ./ --force 
-	rm -rf ./demo-symfony6
+	rm -rf ./${PROJECT_NAME}/docker-compose.yml
+	rm -rf ./${PROJECT_NAME}/.git
+	rm -rf ./${PROJECT_NAME}/.gitignore
+	mv ./${PROJECT_NAME}/* ./ --force
+	mv ./${PROJECT_NAME}/.* ./ --force
+	rm -rf ./${PROJECT_NAME}
+
 
 
 
