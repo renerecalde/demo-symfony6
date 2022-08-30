@@ -30,7 +30,7 @@ restart: ## Restart the containers
 	$(MAKE) stop && $(MAKE) run
 
 build: ## Rebuilds all the containers
-	docker-compose stop && U_ID=${UID} docker-compose build && $(MAKE) run
+	docker-compose stop && U_ID=${UID} docker-compose build && $(MAKE) run && $(MAKE) initialize
 
 # Backend commands
 be-logs: ## Tails the Symfony dev log
@@ -55,7 +55,6 @@ initialize: ## Initialize project
 	docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.name "renerecalde"
 	docker exec -it --user ${UID} ${DOCKER_BE} symfony new ./demo-symfony6 --version="6.1.*" --webapp 
 	mv ./demo-symfony6/* ./ --force
-	docker exec -it --user ${UID} ${DOCKER_BE} shopt -s extglob
 	rm -rf ./demo-symfony6/.git
 	rm -rf ./demo-symfony6/.gitignore
 	mv ./demo-symfony6/.* ./ --force 
