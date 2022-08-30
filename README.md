@@ -10,8 +10,8 @@ Empty symfony6 php 8.x docker environment. With dabatase(mysql or postgres), ngi
 
 Steps:
 
-- git clone https://github.com/renerecalde/demo8.git
-- cd demo
+- git clone https://github.com/renerecalde/demo-symfony6.git
+- cd demo-symfony6
 - make build
 
 Go to browser:
