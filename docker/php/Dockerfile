@@ -57,9 +57,7 @@ RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 RUN git config --global user.email "renerecalde2@gmail.com"
 RUN git config --global user.name "renerecalde"
 
-# RUN symfony new ./demo-symfony6 --version="6.1.*" --webapp
-# RUN mv /appdata/www/demo-symfony6/* mv /appdata/www/demo-symfony6/.* ./
-# RUN rm -rf demo-symfony6 
+
 
 RUN mkdir -p /appdata/www
 
