@@ -30,17 +30,18 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y yarn
 
-RUN curl -L https://www.npmjs.com/install.sh | bash -
+
+RUN  apt-get -o Acquire::Check-Valid-Until=false update && apt-get install -y nodejs npm
 RUN node --version
 RUN npm --version
 RUN npm install n -g
-RUN n stable
+RUN n 16.0.0
 
 COPY ./xdebug.ini $PHP_INI_DIR/conf.d/
 RUN if [ "${http_proxy}" != "" ]; then \
     # Needed for pecl to succeed
     pear config-set http_proxy ${http_proxy} \
-;fi
+    ;fi
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 ## Prevent error in nginx error.log
