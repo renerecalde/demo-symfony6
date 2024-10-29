@@ -4,7 +4,7 @@ demo-symfony6
 
 ## Description
 
-Empty symfony6 php 8.x docker environment. With dabatase(mysql or postgres), nginx and portainer.io.
+Empty symfony7 php 8.3 docker environment. With dabatase(mysql or postgres), nginx and portainer.io.
 
 ## Installation
 
