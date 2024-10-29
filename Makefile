@@ -4,6 +4,7 @@ include .makerc
 DOCKER_DB = ${PROJECT_NAME}-db
 DOCKER_BE = ${PROJECT_NAME}-be
 DOCKER_NETWORK = ${PROJECT_NAME}-network
+
 OS := $(shell uname)
 
 ifeq ($(OS),Linux)
@@ -53,7 +54,7 @@ code-style: ## Runs php-cs to fix code styling following Symfony rules
 config-db-user: ## Config database user
 	docker exec ${DOCKER_DB} sh -c 'exec mysqldump --all-databases -uroot -p root' < /docker/database/configUser.sql
 
-initialize: ## Initialize project 
+initialize: ## Initialize project
 	docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.email "renerecalde2@gmail.com"
 	docker exec -it --user ${UID} ${DOCKER_BE} git config --global user.name "renerecalde"
 	docker exec -it --user ${UID} ${DOCKER_BE} symfony new ./${PROJECT_NAME} --version="7.1.*" --webapp
@@ -64,9 +65,9 @@ initialize: ## Initialize project
 	mv ./${PROJECT_NAME}/* ./ --force
 	mv ./${PROJECT_NAME}/.* ./ --force
 	rm -rf ./${PROJECT_NAME}
-        rm -d ./${PROJECT_NAME}
-        rm compose.override.yaml
-        rm compose.yaml
+	rm -d ./${PROJECT_NAME}
+	rm compose.override.yaml
+	rm compose.yaml
 
 
 
