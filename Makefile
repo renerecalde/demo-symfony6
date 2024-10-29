@@ -64,6 +64,9 @@ initialize: ## Initialize project
 	mv ./${PROJECT_NAME}/* ./ --force
 	mv ./${PROJECT_NAME}/.* ./ --force
 	rm -rf ./${PROJECT_NAME}
+        rm -d ./${PROJECT_NAME}
+        rm compose.override.yaml
+        rm compose.yaml
 
 
 
